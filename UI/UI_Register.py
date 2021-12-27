@@ -1,15 +1,24 @@
+import os
+import sys
 import tkinter
 from tkinter import *
-
+path = os.path.join(os.getcwd(),'Auth')
+# print(path)
+sys.path.insert(1, path)
+from auth import *
+from UI_Error import *
+from UI_Login import *
 # Class RegisterPageUI
 
 class RegisterPageUI:
     def __init__(self):
+         
+
         # This is root widget
         self.top = tkinter.Tk()
         
         # This is the property of root window
-        self.top.title("Login Window") #This is to change the title of the page 
+        self.top.title("Registration Window") #This is to change the title of the page 
         # TODO: Set resolution depending on screen
         self.top.geometry("1280x720") #pick size depending on the screen     
         
@@ -47,10 +56,11 @@ class RegisterPageUI:
         login_button.grid(row = 3, column = 1)
 
         #The button to register a new user in the program
-        registration_button = tkinter.Button(self.top, text="REGISTER")#, command = register_callback)
+        registration_button = tkinter.Button(self.top, text="REGISTER", command = register_callback)
         registration_button.grid(row = 3, column = 2)
 
         self.top.mainloop()
-
+         
 
 Window = RegisterPageUI()
+

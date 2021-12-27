@@ -58,20 +58,16 @@ class General_Task:
             return False
 
 class Registration:
-    # def __init__(self):
-    #     self.email = ""
-    #     self.password = ""
-    #     self.confirm_password =""
     
-    def register(self, email,password,confirm_password):
+    def register(self, email, password, confirm_password):
+        #Creating the general object for validation
         new_task = General_Task()
-        
         status, message = new_task.val(email = email, password = password, confirm_password = confirm_password)
         
         if status == False:
             # Throw this error in the frontend
-            print(message)
-            return False
+            # print(message)
+            return False, message
 
         if status == True:
            path = os.path.join(os.getcwd(),'Auth\\auth.xlsx')
@@ -79,10 +75,10 @@ class Registration:
            df = pd.read_excel(path)
            #appending the list to the df
            df.loc[len(df.index)] = [email, password] 
-        #    print(df.head())
+            #  print(df.head())
            #Overwriting the excel file
            df.to_excel(path,index = False)
-           return True
+           return True,"User Successfully Registered"
 
 
 class Login:
@@ -93,7 +89,7 @@ class Login:
         status,s =task.login_val(email, password)        
         
         if status == False:
-            print(s)
+            return False, s
             #throw it to the UI
         else:
             path = os.path.join(os.getcwd(),'Auth\\auth.xlsx')
@@ -106,15 +102,14 @@ class Login:
                 index = df[df['Email'] == email].index[0] 
                 if df._get_value(index, 'Password') == password:
                     #Grant access to the user
-                    print("I am in.")
-                    return True
+                    # print("I am in.")
+                    return True,None
                 else:
-                    print("You have entered a wrong password.")            
-                    return False
+                    s = "You have entered a wrong password."            
+                    return False, s
             #Email doesn't exist in the database
             else:
-                print("Email does not exist in the database. Please do the registration first")
+                s = "Email does not exist in the database. Please do the registration first"
+                return False, s
 
-#Calling things here
-#task = General_Task()
-#task.file_checker()
+

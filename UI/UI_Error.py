@@ -3,8 +3,8 @@ from tkinter import *
 
 # Class RegisterPageUI
 
-class ErroUI:
-    def __init__(self):
+class ErrorUI:
+    def __init__(self,message):
         # This is root widget
         self.top = tkinter.Tk()
         
@@ -15,7 +15,7 @@ class ErroUI:
         
         #TODO: MAKE THE TEXT DYNAMIC
         # User label for entering the username
-        L1 = Label(self.top, text = "There is some error try again.")
+        L1 = Label(self.top, text = message)
         L1.grid(row = 0,column = 0)       
 
         # The button to exit the program 
@@ -25,4 +25,4 @@ class ErroUI:
         self.top.mainloop()
 
 
-Window = ErrorUI()
+# Window = ErrorUI()
