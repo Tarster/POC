@@ -55,6 +55,11 @@ class LoginPageUI:
 task = General_Task()
 task.file_checker()
 
-reg = Registration()
-if reg.register("Name","Pass1234","Pass1234"):
-    print("Successful")
+# reg = Registration()
+# if reg.register("Name","Pass1234","Pass1234"):
+#     pass
+#     #print("Successful")
+
+log = Login()
+if log.login("Test123","Pass1234"):
+    print("Login Working")

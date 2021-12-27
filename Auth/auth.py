@@ -2,7 +2,7 @@ import os
 import sys
 import pandas as pd
 
-global df 
+
 
 class General_Task:
     
@@ -54,7 +54,7 @@ class General_Task:
             # Create a dataframe to have Email and Password field
             create_df = pd.DataFrame(columns=['Email','Password'])
             print("Creating a new auth file now.")
-            create_df.to_excel(path)
+            create_df.to_excel(path,index=False)
             return False
 
 class Registration:
@@ -77,43 +77,44 @@ class Registration:
            path = os.path.join(os.getcwd(),'Auth\\auth.xlsx')
            #Add email and password to the xlsx file
            df = pd.read_excel(path)
-           #creating the list 
-           list_var = [email , password] 
            #appending the list to the df
-           df_len = len(df)
-           print(df_len)
-           print(f"df is {df.head()}")
-           df.loc[df_len] = list_var
-
-           #delete the previous file
-           os.remove(path)
-           df.to_excel(path)
+           df.loc[len(df.index)] = [email, password] 
+        #    print(df.head())
+           #Overwriting the excel file
+           df.to_excel(path,index = False)
            return True
 
 
 class Login:
     def login(self, email, password):
+        #Creating General_Task object
         task = General_Task()
+        #Checking for validation
         status,s =task.login_val(email, password)        
+        
         if status == False:
             print(s)
             #throw it to the UI
         else:
             path = os.path.join(os.getcwd(),'Auth\\auth.xlsx')
+            #Reading the excel into the dataframe
             df = pd.read_excel(path)
+            # print(list(df['Email']))
 
-            #IF email exist in the database 
-            if email in df['Email']:
-                if password in df['Password']:
+            #If email exist in the database 
+            if email in list(df['Email']):
+                index = df[df['Email'] == email].index[0] 
+                if df._get_value(index, 'Password') == password:
                     #Grant access to the user
-                    pass
+                    print("I am in.")
+                    return True
                 else:
                     print("You have entered a wrong password.")            
-            
+                    return False
             #Email doesn't exist in the database
             else:
                 print("Email does not exist in the database. Please do the registration first")
 
 #Calling things here
-task = General_Task()
-task.file_checker()
+#task = General_Task()
+#task.file_checker()
