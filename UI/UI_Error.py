@@ -3,7 +3,7 @@ from tkinter import *
 
 # Class RegisterPageUI
 
-class RegisterPageUI:
+class ErroUI:
     def __init__(self):
         # This is root widget
         self.top = tkinter.Tk()
@@ -25,4 +25,4 @@ class RegisterPageUI:
         self.top.mainloop()
 
 
-Window = RegisterPageUI()
+Window = ErrorUI()
