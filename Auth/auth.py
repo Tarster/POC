@@ -15,7 +15,7 @@ class General_Task:
             s = s + 'Password is Empty.\n'
         if confirm_password.strip() == "":
             #throw an error here that either email, password and confirm_password
-            s = s + 'Confirm Password is Empty' 
+            s = s + 'Confirm Password is Empty.' 
         if s != "":
             return False, s
 
@@ -41,7 +41,8 @@ class General_Task:
     
 #Checking if file exists in  the system
     def file_checker(self):
-        path = os.path.join(os.getcwd(),'POC\Auth\\auth.xlsx')
+        path = os.path.join(os.getcwd(),'Auth\\auth.xlsx')
+        # print(path)
         if os.path.exists(path):
             # print("File exists")
             # df = pd.read_excel(path)
@@ -73,13 +74,15 @@ class Registration:
             return False
 
         if status == True:
-           path = os.path.join(os.getcwd(),'POC\Auth\\auth.xlsx')
+           path = os.path.join(os.getcwd(),'Auth\\auth.xlsx')
            #Add email and password to the xlsx file
            df = pd.read_excel(path)
            #creating the list 
            list_var = [email , password] 
            #appending the list to the df
            df_len = len(df)
+           print(df_len)
+           print(f"df is {df.head()}")
            df.loc[df_len] = list_var
 
            #delete the previous file
@@ -96,7 +99,7 @@ class Login:
             print(s)
             #throw it to the UI
         else:
-            path = os.path.join(os.getcwd(),'POC\Auth\\auth.xlsx')
+            path = os.path.join(os.getcwd(),'Auth\\auth.xlsx')
             df = pd.read_excel(path)
 
             #IF email exist in the database 
@@ -111,7 +114,6 @@ class Login:
             else:
                 print("Email does not exist in the database. Please do the registration first")
 
-  
 #Calling things here
 task = General_Task()
 task.file_checker()

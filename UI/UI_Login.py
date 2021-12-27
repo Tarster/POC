@@ -1,8 +1,14 @@
+import os
+import sys
 import tkinter
 from tkinter import *
+path = os.path.join(os.getcwd(),'Auth')
+# print(path)
+sys.path.insert(1, path)
+from auth import *
+
 
 # Class LoginPageUI
-
 class LoginPageUI:
     def __init__(self):
         # This is root widget
@@ -44,7 +50,11 @@ class LoginPageUI:
         self.top.mainloop()
 
 
-Window = LoginPageUI()
+# Window = LoginPageUI()
 
+task = General_Task()
+task.file_checker()
 
-
+reg = Registration()
+if reg.register("Name","Pass1234","Pass1234"):
+    print("Successful")
