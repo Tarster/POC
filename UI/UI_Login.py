@@ -10,7 +10,7 @@ class LoginPageUI:
         # This is the property of root window
         self.top.title("Login Window") #This is to change the title of the page 
         # TODO: Set resolution depending on screen
-        self.top.geometry("350x275") #pick size depending on the screen     
+        self.top.geometry("1280x720") #pick size depending on the screen     
         
         # User label for entering the username
         L1 = Label(self.top, text = "User Name")

@@ -3,7 +3,7 @@ import sys
 
 class General_Task:
     def val(email, password,confirm_password):
-        if email.strip == "" or password.strip() == "" or confirm_password.strip() == "":
+        if email.strip() == "" or password.strip() == "" or confirm_password.strip() == "":
             #throw an error here that either email, password and confirm_password
             pass
         elif password != confirm_password:
