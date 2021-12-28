@@ -12,7 +12,6 @@ from UI_Login import *
 
 class RegisterPageUI:
     def __init__(self):
-         
 
         # This is root widget
         self.top = tkinter.Tk()

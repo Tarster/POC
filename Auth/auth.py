@@ -113,3 +113,7 @@ class Login:
                 return False, s
 
 
+log = Login()
+status, message = log.login("Amy","Amy")
+if status is False:
+    print(message)

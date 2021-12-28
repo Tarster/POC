@@ -12,8 +12,8 @@ from UI_Login import *
 
 # Class LoginPageUI
 class LoginPageUI:
-    def __init__(self):
-        
+    
+    def __init__(self):    
         #Creating Registration object
         log = Login()
 
