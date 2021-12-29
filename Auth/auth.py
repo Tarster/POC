@@ -1,9 +1,6 @@
 import os
 import sys
 import pandas as pd
-
-
-
 class General_Task:
     
     #Return 2 value a status and a string to print the error
@@ -26,7 +23,7 @@ class General_Task:
         
         else:
             return  True , None
-
+    #this is to validate the login details.
     def login_val(self, email, password):
         s = ""
         if email.strip() == "":
@@ -36,7 +33,7 @@ class General_Task:
         
         if s != "":
             return False, s
-        
+        #if condition is true just send True and None
         return True, None
     
 #Checking if file exists in  the system
@@ -82,6 +79,7 @@ class Registration:
 
 
 class Login:
+    
     def login(self, email, password):
         #Creating General_Task object
         task = General_Task()
@@ -109,11 +107,5 @@ class Login:
                     return False, s
             #Email doesn't exist in the database
             else:
-                s = "Email does not exist in the database. Please do the registration first"
+                s = "Email does not exist in the database. Please do the registration first."
                 return False, s
-
-
-log = Login()
-status, message = log.login("Amy","Amy")
-if status is False:
-    print(message)

@@ -3,15 +3,16 @@ from tkinter import *
 
 # Class RegisterPageUI
 
-class ErrorUI:
+class StatusUI:
     def __init__(self,message):
         # This is root widget
         self.top = tkinter.Tk()
         
         # This is the property of root window
-        self.top.title("Error Window") #This is to change the title of the page 
+        self.top.title("status Window") #This is to change the title of the page 
         # TODO: Set resolution depending on screen
-        self.top.geometry("300x300") #pick size depending on the screen     
+        
+        self.top.geometry("300x500") #pick size depending on the screen     
         
         #TODO: MAKE THE TEXT DYNAMIC
         # User label for entering the username
@@ -24,5 +25,3 @@ class ErrorUI:
 
         self.top.mainloop()
 
-
-# Window = ErrorUI()
