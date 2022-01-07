@@ -22,7 +22,7 @@ class General_Task:
             return False, s
         
         else:
-            return  True , None
+            return  True, None
     #this is to validate the login details.
     def login_val(self, email, password):
         s = ""
@@ -72,7 +72,7 @@ class Registration:
            df = pd.read_excel(path)
            #appending the list to the df
            df.loc[len(df.index)] = [email, password] 
-            #  print(df.head())
+        #  print(df.head())
            #Overwriting the excel file
            df.to_excel(path,index = False)
            return True,"User Successfully Registered"

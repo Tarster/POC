@@ -6,6 +6,7 @@ from UI_Error import StatusUI
 from UI_Run import RunUI
 #Custom module import from another python file in different folder 
 path = os.path.join(os.getcwd(),'Auth')
+# path = "D:\TCS\POC\Auth"
 sys.path.insert(1, path)
 from auth import *
 
@@ -101,7 +102,7 @@ class RegisterPageUI:
             #Creating registration object
             close(widget)
             log_window = LoginPageUI()
-        
+           
         # This is root widget
         self.top = tkinter.Tk()
         
@@ -150,4 +151,3 @@ class RegisterPageUI:
         self.top.mainloop()
 
 Window = LoginPageUI()
-
