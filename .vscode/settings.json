@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "Auth\\auth.py",
+        "./Auth"
+    ]
+}
