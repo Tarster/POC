@@ -164,7 +164,7 @@ class RegisterPageUI(object):
         E3.grid(row=2, column=1)
 
         # The button to exit the program
-        exit_button = Button(self.top, text="EXIT", command=lambda: destroy(self.top))  # root.quit
+        exit_button = Button(self.top, text="EXIT", command=lambda: close(self.top))  
         exit_button.grid(row=3, column=0)
 
         # The button to login into the program

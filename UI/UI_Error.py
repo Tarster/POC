@@ -17,7 +17,7 @@ class StatusUI(object):
         self.top = Tk()
         
         # This is the property of root window
-        self.top.title("status Window") #This is to change the title of the page 
+        self.top.title("Status Window") #This is to change the title of the page 
         
         self.top.geometry("400x100") #pick size depending on the screen     
         

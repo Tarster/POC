@@ -12,11 +12,11 @@ class RunUI(object):
         self.top = Tk()
         
         # This is the property of root window
-        self.top.title("Error Window") #This is to change the title of the page 
+        self.top.title("Final Window") #This is to change the title of the page 
         self.top.geometry("325x100") #pick size depending on the screen     
         
         # User label for entering the username
-        L1 = Label(self.top, text = "Website to Run.")
+        L1 = Label(self.top, text = "You are Successfully logged into the system.")
         L1.grid(row = 0,column = 0)       
 
         # The button to exit the program 
